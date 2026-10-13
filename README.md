@@ -20,12 +20,18 @@ Instead of relying on fragile mouse drag-and-drop GUI automation to draw HMI scr
      - `build_screen`: Synthesizes a complete screen header + widget array block
 2. **Structural `.pro` AST Parser & Declarative HMI-as-Code (`scripts/hmi_project_tool.py`)**
    - `inspect-pro`: Extract HMI model, communication links, screen list, and all referenced Modbus/local registers.
-   - `inspect-screens`: Parse every screen and widget with exact `(x, y) WxH` geometry, widget type, register bindings, and text labels.
-   - `apply-screen-spec`: Compile a declarative JSON screen specification directly into an existing `.pro` file (replaces an existing screen or appends a new screen while updating the footer `QMap<int, int>` screen table).
+   - `inspect-screens`: Parse every screen and widget with exact `(x, y) WxH` geometry, widget type, register bindings, and text labels (supports `--export-svg-dir`).
+   - `apply-screen-spec`: Compile a declarative JSON screen specification directly into an existing `.pro` file (replaces an existing screen or appends a new screen while updating the footer `QMap<int, int>` screen table, with `--export-svg` support).
    - `replace-string`: Safely update `QString` entries with automatic `uint32_be` UTF-16BE length recalculation and RGB color string protection.
    - `inspect-compile`: Inspect compiled `mulState.db`, `mulText.db`, `SheetPara.dat`, and `ControlPara.dat`.
-3. **GUI Automation & Sandbox-Safe IDE Launcher (`scripts/hmi_gui_ctl.py`)**
-   - Launches `USRHMIToolsProV1.0.exe` on `WinSta0\Default` with `__COMPAT_LAYER=RunAsInvoker` and in-memory patches (`IsUserAnAdmin` check + `gSingle` shared-memory lock bypass) so AI Agents can open `.pro` projects and capture rendered screenshots via `PrintWindow` without UAC elevation blocks.
+3. **Industrial Semantic & Layout Validation (`scripts/hmi_validator.py`)**
+   - Pre-compilation checks for 1024x600 canvas bounds, severe widget overlap, Chinese unit conflicts (`"斤"` vs `"kg"`/`"公斤"`), and duplicate editable Modbus register bindings.
+4. **Instant SVG Wireframe Preview (`scripts/hmi_svg_preview.py`)**
+   - Generates lightweight, pixel-accurate SVG schematics showing bounding boxes, rounded corners, font labels, and `[4x...]` register badges without launching the Windows IDE.
+5. **GUI Automation & Sandbox-Safe IDE Launcher (`scripts/hmi_gui_ctl.py`)**
+   - Launches `USRHMIToolsProV1.0.exe` on `WinSta0\Default` with `__COMPAT_LAYER=RunAsInvoker` and in-memory patches (`IsUserAnAdmin` check + `gSingle` shared-memory lock bypass) so AI Agents can open `.pro` projects, send hotkeys, and capture rendered screenshots via `PrintWindow` without UAC elevation blocks.
+6. **Automated Unit Test Suite (`tests/`)**
+   - 13 comprehensive unit tests covering all 8 widget synthesizers, geometry bounds, semantic validation, and SVG generation.
 
 ---
 
@@ -33,10 +39,12 @@ Instead of relying on fragile mouse drag-and-drop GUI automation to draw HMI scr
 
 ```text
 usr-hmi-dev/
+├── LICENSE                         # MIT Open Source License
 ├── SKILL.md                        # AI Agent skill instructions & binary format reference
 ├── README.md                       # Repository documentation
 ├── examples/
-│   └── apriltag_screen_spec.json   # Example declarative JSON screen layout (4x4 AprilTag feeding grid)
+│   ├── apriltag_screen_spec.json   # Example declarative JSON screen layout (4x4 AprilTag feeding grid)
+│   └── apriltag_screen_layout.svg  # Rendered SVG wireframe preview
 ├── resources/
 │   └── templates/                  # Portable binary templates for screen & widget synthesis
 │       ├── screen_hdr.bin
@@ -48,10 +56,16 @@ usr-hmi-dev/
 │       ├── w_jmp.bin
 │       ├── w_bit_lamp.bin
 │       └── w_multi_lamp.bin
-└── scripts/
-    ├── hmi_project_tool.py         # .pro parser, structural screen inspector & JSON spec compiler
-    ├── hmi_widget_builder.py       # QDataStream binary screen & widget synthesizer
-    └── hmi_gui_ctl.py              # USRHMIToolsProV1.0 process launcher, screenshot & hotkey controller
+├── scripts/
+│   ├── hmi_project_tool.py         # .pro parser, structural screen inspector & JSON spec compiler
+│   ├── hmi_widget_builder.py       # QDataStream binary screen & widget synthesizer
+│   ├── hmi_validator.py            # Canvas bounds, overlap & industrial unit/register validator
+│   ├── hmi_svg_preview.py          # SVG wireframe layout generator
+│   └── hmi_gui_ctl.py              # USRHMIToolsProV1.0 process launcher, screenshot & hotkey controller
+└── tests/                          # Automated unittest suite
+    ├── test_widgets.py             # Widget binary synthesis tests
+    ├── test_validator.py           # Geometry, overlap & unit validation tests
+    └── test_screens.py             # Screen assembly & SVG generation tests
 ```
 
 ---

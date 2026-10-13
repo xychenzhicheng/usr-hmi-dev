@@ -179,6 +179,27 @@ def cmd_inspect_screens(args):
             tname = WIDGET_TYPE_NAMES.get(wtype, f"0x{wtype:02x}")
             print(f"  #{wi:02d} @0x{abs_off:06x} | {tname:<20} | {geom:<18} | {qstrs}")
 
+        if getattr(args, "export_svg_dir", None):
+            from hmi_svg_preview import save_screen_svg
+            svg_spec = {"screen_no": s_num, "screen_name": s_name, "widgets": []}
+            for wi, abs_off, wtype, ver, wlen, geom, qstrs in widgets:
+                if geom and "(" in geom and ") " in geom:
+                    try:
+                        pos_part, size_part = geom.split(") ")
+                        px, py = [float(v) for v in pos_part.replace("(", "").split(",")]
+                        pw, ph = [float(v) for v in size_part.split("x")]
+                        lbl = qstrs[0] if qstrs else ""
+                        svg_spec["widgets"].append({
+                            "type": WIDGET_TYPE_NAMES.get(wtype, "widget"),
+                            "x": px, "y": py, "w": pw, "h": ph,
+                            "label": lbl
+                        })
+                    except Exception:
+                        pass
+            out_svg = Path(args.export_svg_dir) / f"screen_{s_num}_{s_name}.svg"
+            save_screen_svg(svg_spec, str(out_svg))
+            print(f"  Exported layout preview: {out_svg}")
+
 
 def cmd_search_pro(args):
     pro_path = Path(args.pro_file)
@@ -317,10 +338,25 @@ def cmd_extract_upload(args):
 def cmd_apply_screen_spec(args):
     import json
     from hmi_widget_builder import build_screen, build_widget_from_dict
+    from hmi_validator import validate_screen_spec
+    from hmi_svg_preview import save_screen_svg
 
     pro_path = Path(args.pro_file)
     data = pro_path.read_bytes()
     spec = json.loads(Path(args.spec).read_text(encoding="utf-8"))
+
+    # Industrial semantic & layout validation
+    is_valid, errors, warnings = validate_screen_spec(spec)
+    if warnings:
+        print("[VALIDATION WARNINGS]:")
+        for w in warnings:
+            print(f"  [!] {w}")
+    if not is_valid:
+        print("[VALIDATION ERROR] Aborting compilation:")
+        for e in errors:
+            print(f"  [X] {e}")
+        sys.exit(1)
+
     target_no = spec["screen_no"]
     target_name = spec["screen_name"]
     widgets = [build_widget_from_dict(w, idx) for idx, w in enumerate(spec["widgets"])]
@@ -332,6 +368,10 @@ def cmd_apply_screen_spec(args):
         width=spec.get("width", 1024.0),
         height=spec.get("height", 600.0),
     )
+
+    if getattr(args, "export_svg", None):
+        save_screen_svg(spec, args.export_svg)
+        print(f"Exported SVG layout wireframe to: {args.export_svg}")
 
     parsed_screens = parse_screens_and_widgets(data)
     # Locate user screens (exclude built-in keyboards 1..14 and trailing startup screen with wcount==0)
@@ -416,12 +456,14 @@ def main():
     p_scr = sub.add_parser("inspect-screens", help="Structurally inspect all screens and widgets in a .pro file")
     p_scr.add_argument("pro_file", help="Path to .pro file")
     p_scr.add_argument("--all", action="store_true", help="Include built-in keyboard screens (1..14)")
+    p_scr.add_argument("--export-svg-dir", help="Directory to export SVG wireframes for all screens")
     p_scr.set_defaults(func=cmd_inspect_screens)
 
     p_app = sub.add_parser("apply-screen-spec", help="Build and replace/append a screen in a .pro file from a JSON spec")
     p_app.add_argument("pro_file", help="Path to base .pro file")
     p_app.add_argument("--spec", required=True, help="Path to JSON screen layout spec")
     p_app.add_argument("--output", help="Output .pro file path (defaults to in-place)")
+    p_app.add_argument("--export-svg", help="Optional path to export screen layout SVG wireframe")
     p_app.set_defaults(func=cmd_apply_screen_spec)
 
     p_srch = sub.add_parser("search-pro", help="Search QStrings inside a .pro file")

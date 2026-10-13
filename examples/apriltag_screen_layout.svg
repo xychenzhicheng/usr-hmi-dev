@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024.0" height="600.0" viewBox="0 0 1024.0 600.0">
+  <title>[001:坑道1配置] Layout Schematic (USRHMIToolsPro)</title>
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif; }
+      .widget-rect { stroke-width: 1.5; rx: 4; ry: 4; }
+      .badge { font-size: 11px; font-weight: bold; fill: #ffffff; }
+    </style>
+  </defs>
+  <!-- Canvas Background -->
+  <rect width="1024.0" height="600.0" fill="#f4f6f9"/>
+  <!-- Grid Overlay (100px) -->
+  <line x1="100" y1="0" x2="100" y2="600.0" stroke="#e0e0e0" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="200" y1="0" x2="200" y2="600.0" stroke="#e0e0e0" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="300" y1="0" x2="300" y2="600.0" stroke="#e0e0e0" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="400" y1="0" x2="400" y2="600.0" stroke="#e0e0e0" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="500" y1="0" x2="500" y2="600.0" stroke="#e0e0e0" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="600" y1="0" x2="600" y2="600.0" stroke="#e0e0e0" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="700" y1="0" x2="700" y2="600.0" stroke="#e0e0e0" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="800" y1="0" x2="800" y2="600.0" stroke="#e0e0e0" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="900" y1="0" x2="900" y2="600.0" stroke="#e0e0e0" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="1000" y1="0" x2="1000" y2="600.0" stroke="#e0e0e0" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="0" y1="100" x2="1024.0" y2="100" stroke="#e0e0e0" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="0" y1="200" x2="1024.0" y2="200" stroke="#e0e0e0" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="0" y1="300" x2="1024.0" y2="300" stroke="#e0e0e0" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="0" y1="400" x2="1024.0" y2="400" stroke="#e0e0e0" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="0" y1="500" x2="1024.0" y2="500" stroke="#e0e0e0" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <!-- Widgets Layer -->
+  <!-- Widget #0: label -->
+  <rect class="widget-rect" x="16.0" y="10.0" width="520.0" height="72.0" fill="#1b5e20" stroke="#78909c"/>
+  <text x="276.0" y="57.2" font-size="32" fill="#ffffff" text-anchor="middle" font-weight="500">1号猪舍·喂多少斤点哪里</text>
+  <rect x="16.0" y="10.0" width="22" height="15" fill="#37474f" rx="3" ry="3"/><text class="badge" x="27.0" y="21.0" text-anchor="middle">#0</text>
+  <!-- Widget #1: label -->
+  <rect class="widget-rect" x="548.0" y="10.0" width="130.0" height="72.0" fill="#e65100" stroke="#78909c"/>
+  <text x="613.0" y="53.7" font-size="22" fill="#ffffff" text-anchor="middle" font-weight="500">本趟总斤数</text>
+  <rect x="548.0" y="10.0" width="22" height="15" fill="#37474f" rx="3" ry="3"/><text class="badge" x="559.0" y="21.0" text-anchor="middle">#1</text>
+  <!-- Widget #2: numeric_1dec -->
+  <rect class="widget-rect" x="678.0" y="10.0" width="150.0" height="72.0" fill="#fff3e0" stroke="#78909c"/>
+  <text x="753.0" y="56.5" font-size="30" fill="#bf360c" text-anchor="middle" font-weight="500">本趟总斤数 [4x316]</text>
+  <rect x="678.0" y="10.0" width="22" height="15" fill="#37474f" rx="3" ry="3"/><text class="badge" x="689.0" y="21.0" text-anchor="middle">#2</text>
+  <!-- Widget #3: jump_button -->
+  <rect class="widget-rect" x="840.0" y="10.0" width="168.0" height="72.0" fill="#455a64" stroke="#263238"/>
+  <text x="924.0" y="55.8" font-size="28" fill="#ffffff" text-anchor="middle" font-weight="500">返回主页 -&gt; 000:画面1</text>
+  <rect x="840.0" y="10.0" width="22" height="15" fill="#37474f" rx="3" ry="3"/><text class="badge" x="851.0" y="21.0" text-anchor="middle">#3</text>
+  <!-- Widget #4: label -->
+  <rect class="widget-rect" x="16.0" y="92.0" width="196.0" height="60.0" fill="#37474f" stroke="#78909c"/>
+  <text x="114.0" y="129.7" font-size="22" fill="#ffffff" text-anchor="middle" font-weight="500">哪一栏 (0=不喂)</text>
+  <rect x="16.0" y="92.0" width="22" height="15" fill="#37474f" rx="3" ry="3"/><text class="badge" x="27.0" y="103.0" text-anchor="middle">#4</text>
+  <!-- Widget #5: label -->
+  <rect class="widget-rect" x="222.0" y="92.0" width="188.0" height="60.0" fill="#1565c0" stroke="#78909c"/>
+  <text x="316.0" y="130.4" font-size="24" fill="#ffffff" text-anchor="middle" font-weight="500">第1步：前左槽</text>
+  <rect x="222.0" y="92.0" width="22" height="15" fill="#37474f" rx="3" ry="3"/><text class="badge" x="233.0" y="103.0" text-anchor="middle">#5</text>
+  <!-- Widget #6: label -->
+  <rect class="widget-rect" x="420.0" y="92.0" width="188.0" height="60.0" fill="#1565c0" stroke="#78909c"/>
+  <text x="514.0" y="130.4" font-size="24" fill="#ffffff" text-anchor="middle" font-weight="500">第2步：前右槽</text>
+  <rect x="420.0" y="92.0" width="22" height="15" fill="#37474f" rx="3" ry="3"/><text class="badge" x="431.0" y="103.0" text-anchor="middle">#6</text>
+  <!-- Widget #7: label -->
+  <rect class="widget-rect" x="618.0" y="92.0" width="188.0" height="60.0" fill="#00695c" stroke="#78909c"/>
+  <text x="712.0" y="130.4" font-size="24" fill="#ffffff" text-anchor="middle" font-weight="500">第3步：后左槽</text>
+  <rect x="618.0" y="92.0" width="22" height="15" fill="#37474f" rx="3" ry="3"/><text class="badge" x="629.0" y="103.0" text-anchor="middle">#7</text>
+  <!-- Widget #8: label -->
+  <rect class="widget-rect" x="816.0" y="92.0" width="192.0" height="60.0" fill="#00695c" stroke="#78909c"/>
+  <text x="912.0" y="130.4" font-size="24" fill="#ffffff" text-anchor="middle" font-weight="500">第4步：后右槽</text>
+  <rect x="816.0" y="92.0" width="22" height="15" fill="#37474f" rx="3" ry="3"/><text class="badge" x="827.0" y="103.0" text-anchor="middle">#8</text>
+  <!-- Widget #9: label -->
+  <rect class="widget-rect" x="16.0" y="162.0" width="196.0" height="76.0" fill="#2e7d32" stroke="#78909c"/>
+  <text x="114.0" y="208.4" font-size="24" fill="#ffffff" text-anchor="middle" font-weight="500">第1栏 (门口1码)</text>
+  <rect x="16.0" y="162.0" width="22" height="15" fill="#37474f" rx="3" ry="3"/><text class="badge" x="27.0" y="173.0" text-anchor="middle">#9</text>
+  <!-- Widget #10: numeric_1dec -->
+  <rect class="widget-rect" x="222.0" y="162.0" width="188.0" height="76.0" fill="#e3f2fd" stroke="#78909c"/>
+  <text x="316.0" y="211.2" font-size="32" fill="#212121" text-anchor="middle" font-weight="500">第1栏前左 [4x300]</text>
+  <rect x="222.0" y="162.0" width="22" height="15" fill="#37474f" rx="3" ry="3"/><text class="badge" x="233.0" y="173.0" text-anchor="middle">#10</text>
+  <!-- Widget #11: numeric_1dec -->
+  <rect class="widget-rect" x="420.0" y="162.0" width="188.0" height="76.0" fill="#e3f2fd" stroke="#78909c"/>
+  <text x="514.0" y="211.2" font-size="32" fill="#212121" text-anchor="middle" font-weight="500">第1栏前右 [4x301]</text>
+  <rect x="420.0" y="162.0" width="22" height="15" fill="#37474f" rx="3" ry="3"/><text class="badge" x="431.0" y="173.0" text-anchor="middle">#11</text>
+  <!-- Widget #12: numeric_1dec -->
+  <rect class="widget-rect" x="618.0" y="162.0" width="188.0" height="76.0" fill="#e3f2fd" stroke="#78909c"/>
+  <text x="712.0" y="211.2" font-size="32" fill="#212121" text-anchor="middle" font-weight="500">第1栏后左 [4x302]</text>
+  <rect x="618.0" y="162.0" width="22" height="15" fill="#37474f" rx="3" ry="3"/><text class="badge" x="629.0" y="173.0" text-anchor="middle">#12</text>
+  <!-- Widget #13: numeric_1dec -->
+  <rect class="widget-rect" x="816.0" y="162.0" width="192.0" height="76.0" fill="#e3f2fd" stroke="#78909c"/>
+  <text x="912.0" y="211.2" font-size="32" fill="#212121" text-anchor="middle" font-weight="500">第1栏后右 [4x303]</text>
+  <rect x="816.0" y="162.0" width="22" height="15" fill="#37474f" rx="3" ry="3"/><text class="badge" x="827.0" y="173.0" text-anchor="middle">#13</text>
+  <!-- Widget #14: label -->
+  <rect class="widget-rect" x="16.0" y="248.0" width="196.0" height="76.0" fill="#2e7d32" stroke="#78909c"/>
+  <text x="114.0" y="294.4" font-size="24" fill="#ffffff" text-anchor="middle" font-weight="500">第2栏 (中间2码)</text>
+  <rect x="16.0" y="248.0" width="22" height="15" fill="#37474f" rx="3" ry="3"/><text class="badge" x="27.0" y="259.0" text-anchor="middle">#14</text>
+  <!-- Widget #15: numeric_1dec -->
+  <rect class="widget-rect" x="222.0" y="248.0" width="188.0" height="76.0" fill="#e3f2fd" stroke="#78909c"/>
+  <text x="316.0" y="297.2" font-size="32" fill="#212121" text-anchor="middle" font-weight="500">第2栏前左 [4x304]</text>
+  <rect x="222.0" y="248.0" width="22" height="15" fill="#37474f" rx="3" ry="3"/><text class="badge" x="233.0" y="259.0" text-anchor="middle">#15</text>
+  <!-- Widget #16: numeric_1dec -->
+  <rect class="widget-rect" x="420.0" y="248.0" width="188.0" height="76.0" fill="#e3f2fd" stroke="#78909c"/>
+  <text x="514.0" y="297.2" font-size="32" fill="#212121" text-anchor="middle" font-weight="500">第2栏前右 [4x305]</text>
+  <rect x="420.0" y="248.0" width="22" height="15" fill="#37474f" rx="3" ry="3"/><text class="badge" x="431.0" y="259.0" text-anchor="middle">#16</text>
+  <!-- Widget #17: numeric_1dec -->
+  <rect class="widget-rect" x="618.0" y="248.0" width="188.0" height="76.0" fill="#e3f2fd" stroke="#78909c"/>
+  <text x="712.0" y="297.2" font-size="32" fill="#212121" text-anchor="middle" font-weight="500">第2栏后左 [4x306]</text>
+  <rect x="618.0" y="248.0" width="22" height="15" fill="#37474f" rx="3" ry="3"/><text class="badge" x="629.0" y="259.0" text-anchor="middle">#17</text>
+  <!-- Widget #18: numeric_1dec -->
+  <rect class="widget-rect" x="816.0" y="248.0" width="192.0" height="76.0" fill="#e3f2fd" stroke="#78909c"/>
+  <text x="912.0" y="297.2" font-size="32" fill="#212121" text-anchor="middle" font-weight="500">第2栏后右 [4x307]</text>
+  <rect x="816.0" y="248.0" width="22" height="15" fill="#37474f" rx="3" ry="3"/><text class="badge" x="827.0" y="259.0" text-anchor="middle">#18</text>
+  <!-- Widget #19: label -->
+  <rect class="widget-rect" x="16.0" y="334.0" width="196.0" height="76.0" fill="#2e7d32" stroke="#78909c"/>
+  <text x="114.0" y="380.4" font-size="24" fill="#ffffff" text-anchor="middle" font-weight="500">第3栏 (中间3码)</text>
+  <rect x="16.0" y="334.0" width="22" height="15" fill="#37474f" rx="3" ry="3"/><text class="badge" x="27.0" y="345.0" text-anchor="middle">#19</text>
+  <!-- Widget #20: numeric_1dec -->
+  <rect class="widget-rect" x="222.0" y="334.0" width="188.0" height="76.0" fill="#e3f2fd" stroke="#78909c"/>
+  <text x="316.0" y="383.2" font-size="32" fill="#212121" text-anchor="middle" font-weight="500">第3栏前左 [4x308]</text>
+  <rect x="222.0" y="334.0" width="22" height="15" fill="#37474f" rx="3" ry="3"/><text class="badge" x="233.0" y="345.0" text-anchor="middle">#20</text>
+  <!-- Widget #21: numeric_1dec -->
+  <rect class="widget-rect" x="420.0" y="334.0" width="188.0" height="76.0" fill="#e3f2fd" stroke="#78909c"/>
+  <text x="514.0" y="383.2" font-size="32" fill="#212121" text-anchor="middle" font-weight="500">第3栏前右 [4x309]</text>
+  <rect x="420.0" y="334.0" width="22" height="15" fill="#37474f" rx="3" ry="3"/><text class="badge" x="431.0" y="345.0" text-anchor="middle">#21</text>
+  <!-- Widget #22: numeric_1dec -->
+  <rect class="widget-rect" x="618.0" y="334.0" width="188.0" height="76.0" fill="#e3f2fd" stroke="#78909c"/>
+  <text x="712.0" y="383.2" font-size="32" fill="#212121" text-anchor="middle" font-weight="500">第3栏后左 [4x310]</text>
+  <rect x="618.0" y="334.0" width="22" height="15" fill="#37474f" rx="3" ry="3"/><text class="badge" x="629.0" y="345.0" text-anchor="middle">#22</text>
+  <!-- Widget #23: numeric_1dec -->
+  <rect class="widget-rect" x="816.0" y="334.0" width="192.0" height="76.0" fill="#e3f2fd" stroke="#78909c"/>
+  <text x="912.0" y="383.2" font-size="32" fill="#212121" text-anchor="middle" font-weight="500">第3栏后右 [4x311]</text>
+  <rect x="816.0" y="334.0" width="22" height="15" fill="#37474f" rx="3" ry="3"/><text class="badge" x="827.0" y="345.0" text-anchor="middle">#23</text>
+  <!-- Widget #24: label -->
+  <rect class="widget-rect" x="16.0" y="420.0" width="196.0" height="76.0" fill="#2e7d32" stroke="#78909c"/>
+  <text x="114.0" y="466.4" font-size="24" fill="#ffffff" text-anchor="middle" font-weight="500">第4栏 (里头4码)</text>
+  <rect x="16.0" y="420.0" width="22" height="15" fill="#37474f" rx="3" ry="3"/><text class="badge" x="27.0" y="431.0" text-anchor="middle">#24</text>
+  <!-- Widget #25: numeric_1dec -->
+  <rect class="widget-rect" x="222.0" y="420.0" width="188.0" height="76.0" fill="#e3f2fd" stroke="#78909c"/>
+  <text x="316.0" y="469.2" font-size="32" fill="#212121" text-anchor="middle" font-weight="500">第4栏前左 [4x312]</text>
+  <rect x="222.0" y="420.0" width="22" height="15" fill="#37474f" rx="3" ry="3"/><text class="badge" x="233.0" y="431.0" text-anchor="middle">#25</text>
+  <!-- Widget #26: numeric_1dec -->
+  <rect class="widget-rect" x="420.0" y="420.0" width="188.0" height="76.0" fill="#e3f2fd" stroke="#78909c"/>
+  <text x="514.0" y="469.2" font-size="32" fill="#212121" text-anchor="middle" font-weight="500">第4栏前右 [4x313]</text>
+  <rect x="420.0" y="420.0" width="22" height="15" fill="#37474f" rx="3" ry="3"/><text class="badge" x="431.0" y="431.0" text-anchor="middle">#26</text>
+  <!-- Widget #27: numeric_1dec -->
+  <rect class="widget-rect" x="618.0" y="420.0" width="188.0" height="76.0" fill="#e3f2fd" stroke="#78909c"/>
+  <text x="712.0" y="469.2" font-size="32" fill="#212121" text-anchor="middle" font-weight="500">第4栏后左 [4x314]</text>
+  <rect x="618.0" y="420.0" width="22" height="15" fill="#37474f" rx="3" ry="3"/><text class="badge" x="629.0" y="431.0" text-anchor="middle">#27</text>
+  <!-- Widget #28: numeric_1dec -->
+  <rect class="widget-rect" x="816.0" y="420.0" width="192.0" height="76.0" fill="#e3f2fd" stroke="#78909c"/>
+  <text x="912.0" y="469.2" font-size="32" fill="#212121" text-anchor="middle" font-weight="500">第4栏后右 [4x315]</text>
+  <rect x="816.0" y="420.0" width="22" height="15" fill="#37474f" rx="3" ry="3"/><text class="badge" x="827.0" y="431.0" text-anchor="middle">#28</text>
+  <!-- Widget #29: label -->
+  <rect class="widget-rect" x="16.0" y="508.0" width="660.0" height="80.0" fill="#37474f" stroke="#78909c"/>
+  <text x="346.0" y="556.4" font-size="24" fill="#fff176" text-anchor="middle" font-weight="500">温馨提示：点方框直接改斤数，改完点右边保存！</text>
+  <rect x="16.0" y="508.0" width="22" height="15" fill="#37474f" rx="3" ry="3"/><text class="badge" x="27.0" y="519.0" text-anchor="middle">#29</text>
+  <!-- Widget #30: write_button -->
+  <rect class="widget-rect" x="688.0" y="508.0" width="320.0" height="80.0" fill="#e65100" stroke="#263238"/>
+  <text x="848.0" y="558.5" font-size="30" fill="#ffffff" text-anchor="middle" font-weight="500">存好啦！点我保存 [4x100]</text>
+  <rect x="688.0" y="508.0" width="22" height="15" fill="#37474f" rx="3" ry="3"/><text class="badge" x="699.0" y="519.0" text-anchor="middle">#30</text>
+</svg>
